@@ -12,7 +12,7 @@ public class HWInterview {
 
     public static void main(String[] args){
 
-        String input ="C8 D3 B4 B2 C5 C6 A9 C9 A4 A5 A6 B1 C1";
+        String input ="C7 D9 B4 B2 C5 C6 A9 C9 A4 A5 A6 B1 C1";
         String[] split = input.split(" ");
         List<String> strings = Arrays.asList(split);
         sort(strings);
@@ -30,6 +30,12 @@ public class HWInterview {
         }
 
         List<Map.Entry<String,Integer>> l = new ArrayList<Map.Entry<String, Integer>>(oMap.entrySet());
+        sort(l, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o1.getKey().compareTo(o2.getKey());
+            }
+        });
+
         Collections.sort(l, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
                 return o1.getValue().compareTo(o2.getValue());
